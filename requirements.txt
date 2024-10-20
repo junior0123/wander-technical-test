@@ -1,0 +1,4 @@
+playwright
+behave
+pytest-html
+PyYAML
