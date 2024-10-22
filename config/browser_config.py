@@ -53,11 +53,11 @@ class BrowserManager:
             ValueError: If the browser type specified in the config is unsupported.
         """
         if self.browser_type == 'chromium':
-            return self.playwright.chromium.launch(headless=self.headless, slow_mo=self.slow_mo)
+            return self.playwright.chromium.launch(args=['--start-maximized'],headless=self.headless, slow_mo=self.slow_mo)
         elif self.browser_type == 'firefox':
-            return self.playwright.firefox.launch(headless=self.headless, slow_mo=self.slow_mo)
+            return self.playwright.firefox.launch(args=['--start-maximized'],headless=self.headless, slow_mo=self.slow_mo)
         elif self.browser_type == 'webkit':
-            return self.playwright.webkit.launch(headless=self.headless, slow_mo=self.slow_mo)
+            return self.playwright.webkit.launch(args=['--start-maximized'],headless=self.headless, slow_mo=self.slow_mo)
         else:
             raise ValueError(f"Unsupported browser: {self.browser_type}")
 
@@ -82,7 +82,7 @@ class BrowserManager:
         Returns:
             BrowserContext: A new browser context instance.
         """
-        return self.browser.new_context()
+        return self.browser.new_context(no_viewport=True)
 
     def close(self):
         """
