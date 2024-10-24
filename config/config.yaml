@@ -1,0 +1,7 @@
+default:
+  base_url: "https://wander.com"  # Base URL for the tests
+  browser: "chromium"             # Default browser to use: chromium, firefox, webkit
+  headless: False                 # Run in headless mode (no UI)
+  timeout: 10                     # Maximum time to wait for actions (in seconds)
+  slow_mo: 250                     # Slow down actions to simulate human interaction (in milliseconds)
+  retries: 2                      # Number of retries for a failed test
